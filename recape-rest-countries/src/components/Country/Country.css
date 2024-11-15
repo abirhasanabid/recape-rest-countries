@@ -5,3 +5,9 @@
     padding: 15px;
 };
 
+.visited-bg{
+    /* background-color: brown; */
+    background-color: red;
+    color: blueviolet;
+
+}
