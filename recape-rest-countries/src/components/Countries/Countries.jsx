@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Country from "../Country/Country";
 
 const Countries = () => {
     const [countires, setCountries] = useState([]);
@@ -10,8 +11,13 @@ const Countries = () => {
     }, []);
 
     return (
-        <div>
+        <div className="">
             <h3>Countries : {countires.length}</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+                {
+                    countires.map(country => <Country key={country.cca2} country={country}></Country>)
+                }
+            </div>
         </div>
     );
 };
