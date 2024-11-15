@@ -3,8 +3,7 @@ import './Country.css'
 import PropTypes from 'prop-types';
 
 
-const Country = ({ country , handleVisitedCountries }) => {
-    // console.log(handleVisitedCountries);
+const Country = ({ country, handleVisitedCountries, handleVisitedFlags }) => {
     const { name, flags, population } = country;
 
     const [visited, setVisited] = useState(false);
@@ -14,12 +13,13 @@ const Country = ({ country , handleVisitedCountries }) => {
     };
 
     return (
-        <div className={`country ${visited && 'visited-bg'}`} /* style={{backgroundColor: visited && 'red'}} */> {/* comment kora line ta kaj korce but 'visited-bg' class kaj korce na */}
+        <div className={`country ${visited ? 'visited-bg' : ''}`} /* style={{backgroundColor: visited && 'red'}} */> {/* comment kora line ta kaj korce but 'visited-bg' class kaj korce na */}
             <h4 style={{ color: visited && 'blueviolet' }}>Name : {name.common}</h4>
             <img src={flags.png} alt="" />
             <p>Population : {population}</p>
             <button onClick={handlerVisited}>{visited ? 'Visited' : 'Going'}</button>
-            <button onClick={()=>{handleVisitedCountries(country)}}>Visited List</button>
+            <button onClick={() => { handleVisitedCountries(country) }}>Visited List</button>
+            <button onClick={() => handleVisitedFlags(flags)}>Visited Flag</button>
             {
                 visited ? <p style={{ color: 'red' }}>I visited this country</p> : <p>I want to visite</p>
             }

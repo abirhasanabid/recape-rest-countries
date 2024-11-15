@@ -7,7 +7,7 @@
 
 .visited-bg{
     /* background-color: brown; */
-    background-color: red;
-    color: blueviolet;
+    background-color: red !important;
+    /* color: blueviolet; */
 
 }
